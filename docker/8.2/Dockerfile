@@ -51,6 +51,7 @@ RUN useradd -ms /bin/bash --no-user-group -g $WWWGROUP -u 1337 sail
 ADD --chown=www-data:www-data . /var/www/html
 RUN chown -R www-data:www-data /var/www
 RUN chown -R www-data:www-data /var/www/html
+RUN chmod -R 777 /var/www/html/storage
 
 COPY start-container /usr/local/bin/start-container
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
