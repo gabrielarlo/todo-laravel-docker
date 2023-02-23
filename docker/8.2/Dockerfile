@@ -49,7 +49,7 @@ RUN groupadd --force -g $WWWGROUP sail
 RUN useradd -ms /bin/bash --no-user-group -g $WWWGROUP -u 1337 sail
 
 COPY . /var/www/html
-COPY --chown=www-data:www-data . /var/www/html
+RUN chown -R www-data:www-data /var/www/html
 RUN chmod -R 777 /var/www/html
 
 COPY start-container /usr/local/bin/start-container
