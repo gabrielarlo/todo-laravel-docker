@@ -18,3 +18,4 @@
 172.29.0.1 - - [23/Feb/2023:09:35:51 +0000] "GET /horizon/api/workload HTTP/1.1" 200 181 "http://localhost:8080/horizon/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
 172.29.0.1 - - [23/Feb/2023:09:35:51 +0000] "GET /horizon/api/stats HTTP/1.1" 200 181 "http://localhost:8080/horizon/dashboard" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
 172.29.0.1 - - [23/Feb/2023:09:40:02 +0000] "GET /api/todo/list HTTP/1.1" 200 86 "-" "PostmanRuntime/7.30.0"
+172.29.0.1 - - [23/Feb/2023:09:54:25 +0000] "GET /api/todo/list HTTP/1.1" 200 86 "-" "PostmanRuntime/7.30.0"
