@@ -3,7 +3,7 @@
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\JsonResponse;
 
-function res($data = null, string $msg = 'Success', int $code = 200): JsonResponse
+function res($data = [], string $msg = 'Success', int $code = 200): JsonResponse
 {
     return response()->json([
         'code' => $code,

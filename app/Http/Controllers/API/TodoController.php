@@ -12,9 +12,11 @@ class TodoController extends Controller
 {
     public function list(): JsonResponse
     {
-        $t = Todo::orderBy('done')->get();
+        $list = Todo::orderBy('done')->orderBy('updated_at', 'DESC')->get();
+        $incomplete = Todo::where('done', false)->count();
+        $complete = Todo::where('done', true)->count();
 
-        return res($t);
+        return res(compact('list', 'incomplete', 'complete'));
     }
 
     public function details(Todo $todo): JsonResponse
@@ -26,7 +28,7 @@ class TodoController extends Controller
     {
         $v = Validator::make($request->all(), [
             'title' => 'required',
-            'description' => 'nullable|max:256',
+            'description' => 'required|max:256',
         ]);
         if ($v->fails()) {
             return vRes($v);
@@ -41,10 +43,14 @@ class TodoController extends Controller
     {
         $v = Validator::make($request->all(), [
             'title' => 'required',
-            'description' => 'nullable|max:256',
+            'description' => 'required|max:256',
         ]);
         if ($v->fails()) {
             return vRes($v);
+        }
+
+        if ($todo->done) {
+            return eRes('Item is already set to done');
         }
 
         $todo->update($request->all());
