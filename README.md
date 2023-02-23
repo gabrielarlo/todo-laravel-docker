@@ -35,4 +35,12 @@
 ### Code Formatting
 - `./vendor/bin/pint` to sanitize and format code styles
 
+### Running command inside docker
+```dotenv
+#Ex:
+#docker exec -ti <container name> bash
+
+docker exec -ti todo-list-preview-be_laravel.test_1 bash
+```
+
 ### Done!
