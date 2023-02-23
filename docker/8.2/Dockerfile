@@ -53,10 +53,6 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY php.ini /etc/php/8.2/cli/conf.d/99-sail.ini
 RUN chmod +x /usr/local/bin/start-container
 
-COPY . /var/www/html
-RUN chown -R www-data:www-data /var/www/html
-RUN chmod -R 777 /var/www/html
-
 EXPOSE 8000
 
 ENTRYPOINT ["start-container"]
