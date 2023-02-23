@@ -1,6 +1,6 @@
 # Copied from cyberduck/php-fpm-laravel
 #https://github.com/Cyber-Duck/php-fpm-laravel/blob/8.1/Dockerfile
-FROM php:8.1-fpm
+FROM php:8.2-fpm
 
 MAINTAINER support@cyber-duck.co.uk
 
@@ -148,6 +148,9 @@ COPY ./docker-entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 RUN ln -s /usr/local/bin/docker-entrypoint.sh /
 ENTRYPOINT ["docker-entrypoint.sh"]
+
+ADD --chown=www-data:www-data . /var/www
+RUN chown -R www-data:www-data /var/www
 
 EXPOSE 9000
 CMD ["php-fpm"]
